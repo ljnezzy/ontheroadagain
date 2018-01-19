@@ -1,0 +1,26 @@
+<h1>On The Road Again</h1>
+
+<% @vehicles.each do |vehicle| %>
+  <article>
+    <header>
+      <h2><%= link_to(vehicle.make, vehicle) %></h2>
+    </header>
+    <p>
+      <%= truncate(vehicle.features, length: 40, separator: ' ') %>
+    </p>
+    <table>
+      <tr>
+        <th>Model:</th>
+        <td><%= vehicle.model %></td>
+      </tr>
+      <tr>
+        <th>Year:</th>
+        <td><%= vehicle.year %></td>
+      </tr>
+      <tr>
+        <th>Price:</th>
+        <td><%= format_price(vehicle) %></td>
+      </tr>
+    </table>
+  </article>
+<% end %>

@@ -1,0 +1,24 @@
+<article>
+    <header>
+      <h2><%= @vehicles.make %></h2>
+    </header>
+    <p>
+      <%= @vehicles.features %>
+    </p>
+    <table>
+      <tr>
+        <th>Model:</th>
+        <td><%= @vehicles.model %></td>
+      </tr>
+      <tr>
+        <th>Year:</th>
+        <td><%= @vehicles.year %></td>
+      </tr>
+      <tr>
+        <th>Price:</th>
+        <td><%= format_price(@vehicles) %></td>
+      </tr>
+    </table>
+  </article>
+  <br>
+  <%= link_to "All Vehicles", root_path %>
