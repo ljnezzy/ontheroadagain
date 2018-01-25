@@ -21,4 +21,7 @@
     </table>
   </article>
   <br>
-  <%= link_to "All Vehicles", root_path %>
+  <%= link_to "All Vehicles", root_path %> | 
+  <%= link_to "Edit", edit_vehicle_path(@vehicles) %> |
+  <%= link_to "Delete", vehicle_path(@vehicles), method: :delete, 
+    data: {confirm: 'Are you sure?'} %>
