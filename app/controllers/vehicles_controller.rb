@@ -1,6 +1,6 @@
 class VehiclesController < ApplicationController
 	def index
-		@vehicles=Vehicle.all
+		@vehicles=Vehicle.price_high_to_low
 	end
 
 	def show
@@ -37,6 +37,6 @@ class VehiclesController < ApplicationController
 private
 	def vehicles_params
 		params.require(:vehicle).
-			permit(:make, :model, :year, :price, :features)
+			permit(:make, :model, :year, :price, :features, :mileage, :color, :image_file_name)
 	end
 end

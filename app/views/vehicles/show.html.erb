@@ -1,6 +1,7 @@
 <article>
     <header>
       <h2><%= @vehicles.make %></h2>
+      <%= image_for(@vehicles) %>
     </header>
     <p>
       <%= @vehicles.features %>
@@ -17,6 +18,14 @@
       <tr>
         <th>Price:</th>
         <td><%= format_price(@vehicles) %></td>
+      </tr>
+      <tr>
+        <th>Miles:</th>
+        <td><%= @vehicles.mileage %></td>
+      </tr>
+      <tr>
+        <th>Color:</th>
+        <td><%= @vehicles.color %></td>
       </tr>
     </table>
   </article>

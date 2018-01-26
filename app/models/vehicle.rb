@@ -1,5 +1,11 @@
 class Vehicle < ApplicationRecord
+	def self.price_high_to_low
+  	 order('price') 	
+  	end
+	
 	def call_for_price?
-    price.blank? || price < 5000
-  end
+    	price.blank? || price < 5000
+  	end
+
+
 end
