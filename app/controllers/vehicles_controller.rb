@@ -13,8 +13,11 @@ class VehiclesController < ApplicationController
 
 	def update
 		@vehicles = Vehicle.find(params[:id])
-		@vehicles.update(vehicles_params)
-		redirect_to @vehicles		
+		if @vehicles.update(vehicles_params)
+			redirect_to @vehicles, notice: "Vehicle successfully updated!"
+		else
+			render :edit
+		end
 	end
 
 	def new
@@ -23,15 +26,17 @@ class VehiclesController < ApplicationController
 
 	def create
 		@vehicles=Vehicle.new(vehicles_params)
-		@vehicles.save
-		redirect_to @vehicles		
+		if @vehicles.save
+			redirect_to @vehicles, notice: "Vehicle successfully created!"
+		else
+			render :new
+		end
 	end
 
 	def destroy
 		@vehicles = Vehicle.find(params[:id])
 		@vehicles.destroy
-		redirect_to vehicles_url
-		
+		redirect_to vehicles_url, alert: "Vehicle successfully deleted!"
 	end
 
 private
