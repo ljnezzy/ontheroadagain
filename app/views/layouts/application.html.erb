@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ontheroadagain</title>
+    <title>On the Road Again</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <style type="text/css">
-		img { 
-		height: 42 px;
-		width: 42 px;
-		}
-    </style>
+    
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/header" %>
+
+    <div id="wrapper">
+
+      <div id="container">
+        <section id="sidebar">
+          <%= render "layouts/sidebar" %>
+        </section>
+        <section id="content">
+          <%= yield %>
+        </section>
+      </div>
+
+    </div>
+
+    <%= render "layouts/footer" %>
   </body>
 </html>

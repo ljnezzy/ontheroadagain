@@ -1,39 +1,43 @@
 <%= form_for(@vehicles) do |f| %>
-  <p>
-    <%= f.label :make %><br/>
-    <%= f.text_field :make, autofocus: true %>
-  </p>
-  <p>
-    <%= f.label :model %><br/>
-    <%= f.text_field :model %>
-  </p>
-  <p>
-    <%= f.label :year %><br/>
-    <%= f.number_field :year %>
-  </p>
-  <p>
-    <%= f.label :price %><br/>
-    <%= f.number_field :price %>
-  </p>
-  <p>
-    <%= f.label :features %><br/>
-    <%= f.text_area :features, cols: 40, rows: 3 %>
-  </p>
-  <p>
-    <%= f.label :mileage %><br/>
-    <%= f.number_field :mileage %>
-  </p>
-  <p>
-    <%= f.label :color %><br/>
-    <%= f.text_field :color %>
-  </p>
-  <p>
-    <%= f.label :image_file_name %><br/>
-    <%= f.text_field :image_file_name, size: 30, 
-          placeholder:"GIF, JPG, or PNG file name" %>
-  </p> 
-  <p>
-    <%= f.submit %> |
-    <%= link_to "Cancel", vehicles_path %>
-  </p>
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :make %><br/>
+        <%= f.text_field :make, autofocus: true %>
+      </li>
+      <li class="required">
+        <%= f.label :model %><br/>
+        <%= f.text_field :model %>
+      </li>
+      <li class="required">
+        <%= f.label :year %><br/>
+        <%= f.select :year, Date.today.year-50 .. Date.today.year+5 %>
+      </li>
+      <li class="required">
+        <%= f.label :price %><br/>
+        <%= f.number_field :price %>
+      </li>
+      <li class="required">
+        <%= f.label :features %><br/>
+        <%= f.text_area :features, cols: 40, rows: 3 %>
+      </li>
+      <li class="required">
+        <%= f.label :mileage %><br/>
+        <%= f.number_field :mileage %>
+      </li>
+      <li class="required">
+        <%= f.label :color %><br/>
+        <%= f.text_field :color %>
+      </li>
+      <li>
+        <%= f.label :image_file_name %><br/>
+        <%= f.text_field :image_file_name, size: 30, 
+              lilaceholder:"GIF, JliG, or liNG file name" %>
+      </li>
+    </ol> 
+    <p>
+      <%= f.submit %> |
+      <%= link_to "Cancel", vehicles_path, class: 'button' %>
+    </p>
+  </fieldset>
 <% end %>

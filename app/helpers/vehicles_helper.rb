@@ -7,6 +7,10 @@ module VehiclesHelper
 	   end
 	end
 
+	def format_mileage(vehicle)
+		number_with_delimiter(vehicle.mileage)
+	end
+
 	def image_for(vehicle)
 		if vehicle.image_file_name.blank?
 			image_tag('placeholder.png')
