@@ -1,0 +1,17 @@
+<header id="content-header">
+  <h1>Reviews for <%= link_to(@vehicle.make, @vehicle) %></h1>
+  <h2><%= @vehicle.model %></h2>
+</header>
+
+<ol id="reviews">
+  <% @reviews.each do |review| %>
+    <li>
+      <span class="review"><%= pluralize(review.stars, 'star') %></span>
+      <span class="user">by <%= link_to (review.name), vehicle_review_path(@vehicle, review.id) %></span>
+      <span class="date"><%= time_ago_in_words(review.created_at) %> ago</span>
+      <p>
+        &quot;<%= review.comment %>&quot;
+      </p>
+    </li>
+  <% end %>
+</ol>

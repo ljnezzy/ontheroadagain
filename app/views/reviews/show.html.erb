@@ -1,0 +1,26 @@
+<header id="content-header">
+	<h2><%= @review.name %>'s Review of <%= link_to @vehicle.make, @vehicle %></h2><h3><%= @vehicle.model %></h3>
+</header>
+
+<%= link_to pluralize(@vehicle.make, 'Review'),vehicle_reviews_path(@vehicle), class: 'button' %>
+
+
+<article id="vehicle" class="vehicle">
+  <h3><%= @review.stars %> Stars</h3>
+    
+  <h3>Comments</h3>
+  <p>
+    <%= @review.comment %>
+  </p>
+</article>
+
+<footer>
+	<nav>
+		<p>
+			<%= link_to 'Edit', edit_vehicle_review_path(@vehicle, @review), class: 'button' %>
+			  <%= link_to 'Delete', [@vehicle, @review], 
+			                  class: 'button',
+			                  method: :delete, data: { confirm: 'Are you sure?' } %>
+		</p>
+	</nav>
+</footer>

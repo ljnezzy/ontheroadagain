@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125192804) do
+ActiveRecord::Schema.define(version: 20180213001356) do
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "name"
+    t.integer "stars"
+    t.text "comment"
+    t.integer "vehicle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["vehicle_id"], name: "index_reviews_on_vehicle_id"
+  end
 
   create_table "vehicles", force: :cascade do |t|
     t.string "make"

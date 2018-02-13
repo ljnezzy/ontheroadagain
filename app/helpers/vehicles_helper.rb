@@ -18,4 +18,7 @@ module VehiclesHelper
 			image_tag(vehicle.image_file_name, height: '100', width: 'auto')
 		end
 	end
+
+	
+
 end

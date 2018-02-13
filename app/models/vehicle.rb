@@ -8,7 +8,7 @@ class Vehicle < ApplicationRecord
 	validates :image_file_name, allow_blank: true, format: { with: /\w+\.(gif|jpg|png)\z/i,	message: "must reference a GIF, JPG, or PNG image"
 	}
 
-	
+	has_many :reviews, dependent: :destroy	
 
 	def self.price_high_to_low
   	 order(price: :desc) 	
@@ -18,5 +18,6 @@ class Vehicle < ApplicationRecord
     	price.blank? || price < 5000
   	end
 
+  	
 
 end

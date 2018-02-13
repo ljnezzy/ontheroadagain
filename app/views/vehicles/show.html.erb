@@ -28,10 +28,20 @@
         <td><%= @vehicles.color %></td>
       </tr>
     </table>
+
+    <h3>Reviews</h3>
+      <%= link_to pluralize(@vehicles.reviews.size, 'Review'), 
+                  vehicle_reviews_path(@vehicles) %>
+    
+      
   </article>
   <br>
 
   <footer>
+    <p>
+      <%= link_to "Write Review", new_vehicle_review_path(@vehicles),
+               class: 'button ok review' %>
+    </p>
     <nav>
       <%= link_to 'Edit', edit_vehicle_path(@vehicles), class: 'button' %>
       <%= link_to 'Delete', @vehicles, 
