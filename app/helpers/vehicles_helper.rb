@@ -19,6 +19,13 @@ module VehiclesHelper
 		end
 	end
 
+	def format_average_stars(vehicle)   
+	  if vehicle.average_stars.nil?
+	    content_tag(:strong, 'No reviews')
+	  else
+	  	  "* " * vehicle.average_stars.round
+	  end
+	end
 	
 
 end

@@ -1,16 +1,12 @@
 <article id="vehicle" class="vehicle">
     <header>
-      <h2><%= @vehicles.make %></h2>
+      <h2><%= @vehicles.make %> <%= @vehicles.model %></h2>
       <%= image_for(@vehicles) %>
     </header>
     <p>
       <%= @vehicles.features %>
     </p>
     <table>
-      <tr>
-        <th>Model:</th>
-        <td><%= @vehicles.model %></td>
-      </tr>
       <tr>
         <th>Year:</th>
         <td><%= @vehicles.year %></td>
@@ -30,10 +26,10 @@
     </table>
 
     <h3>Reviews</h3>
-      <%= link_to pluralize(@vehicles.reviews.size, 'Review'), 
-                  vehicle_reviews_path(@vehicles) %>
-    
-      
+      <%= link_to pluralize(@vehicles.reviews.size, 'Review'), vehicle_reviews_path(@vehicles) %>
+      &nbsp;
+      <%= format_average_stars(@vehicles) %>    
+
   </article>
   <br>
 

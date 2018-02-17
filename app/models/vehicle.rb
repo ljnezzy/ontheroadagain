@@ -18,6 +18,8 @@ class Vehicle < ApplicationRecord
     	price.blank? || price < 5000
   	end
 
-  	
+  	def average_stars
+  	  reviews.average(:stars)
+  	end
 
 end
