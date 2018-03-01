@@ -1,5 +1,9 @@
 class VehiclesController < ApplicationController
-	def index
+
+	before_action :require_signin, except: [:index, :show]
+	before_action :require_admin, except: [:index, :show]
+
+  	def index
 		@vehicles=Vehicle.price_high_to_low
 	end
 

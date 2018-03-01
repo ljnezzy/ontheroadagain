@@ -1,5 +1,5 @@
 <%= form_for(@vehicles) do |f| %>
-  <%= render "shared/errors" %>
+  <%= render "shared/errors", object: @vehicles %>
   <fieldset>
     <ol>
       <li class="required">

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-	get 'signup' => 'users#new'
-  resources :users
-  #resources :reviews
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+	
+  
 	root 'vehicles#index'
 
 	resources :vehicles do
@@ -12,4 +10,9 @@ Rails.application.routes.draw do
 
 	#get 'vehicles' => 'vehicles#index'
 	#get 'vehicles/:id' => 'vehicles#show', as: "vehicle"
+	get 'signup' => 'users#new'
+	resources :users
+	#resources :reviews
+	resource :session	
+	get "signin" => "sessions#new"
 end

@@ -4,9 +4,11 @@
       <li class="all-vehicles">
         <%= link_to 'All Vehicles', vehicles_path %>
       </li>
-      <li class="create-vehicles">
-        <%= link_to 'Add New Vehicle', new_vehicle_path %>
-      </li>
+      <% if current_user_admin? %>
+        <li class="create-vehicles">
+          <%= link_to 'Add New Vehicle', new_vehicle_path %>
+        </li>
+      <% end %>
     </ul>
   </nav>
 </aside>
